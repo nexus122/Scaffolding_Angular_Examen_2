@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 export class ContainerComponent implements OnInit {
   constructor(private _obtainHero: ObtainHeroesService) {}
   /* Elementos esenciales para la paginación */
-  limit = 10;
+  limit = 100;
   offset = 0;
 
   characters?: Observable<Character[]>;
@@ -23,7 +23,7 @@ export class ContainerComponent implements OnInit {
   }
 
   obtainCharacters() {
-    const param = `ts=${environment.ts}&apikey=${environment.publicKey}&hash=${environment.Hash}&limit=6&offset=0`;
+    const param = `ts=${environment.ts}&apikey=${environment.publicKey}&hash=${environment.Hash}&limit=${this.limit}&offset=${this.offset}`;
     this._obtainHero.obtainCharacters(param);
   }
 }
