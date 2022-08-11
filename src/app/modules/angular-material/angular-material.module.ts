@@ -7,10 +7,18 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 // Cargamos los botones de Angular Material
 import { MatButtonModule } from '@angular/material/button';
+// Cargamos las cards
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [],
   imports: [],
-  exports: [CommonModule, MatToolbarModule, MatIconModule, MatButtonModule],
+  exports: [
+    CommonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+  ],
 })
 export class AngularMaterialModule {}

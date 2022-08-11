@@ -1,0 +1,6 @@
+@import '../../styles/global.scss';
+
+.section {
+  @include flex (flex, wrap, row, center, center, center);
+  gap: 1em;
+}

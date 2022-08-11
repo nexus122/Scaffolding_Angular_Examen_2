@@ -11,13 +11,10 @@ import { CardComponent } from './components/card/card.component';
 import { ImageConcatPipe } from './pipes/image-concat.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// Modulo de peticiones http
+import { HttpClientModule } from '@angular/common/http';
 // Modulo de Angular Material
 import { AngularMaterialModule } from './modules/angular-material/angular-material.module';
-
-// Header de Angular Material
-import { MatToolbarModule } from '@angular/material/toolbar';
-// Cargamos los iconos de Angular Material
-import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -34,6 +31,7 @@ import { MatIconModule } from '@angular/material/icon';
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
