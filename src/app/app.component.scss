@@ -1,0 +1,19 @@
+@import '../app/styles/global.scss';
+
+main {
+  @include flex(flex, wrap, column, space-between, center, center);
+  min-width: 100vw;
+  min-height: 100vh;
+
+  app-header {
+    min-width: 100vw;
+  }
+
+  .body {
+    //
+  }
+
+  app-footer {
+    min-width: 100vw;
+  }
+}
