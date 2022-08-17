@@ -11,6 +11,9 @@ import { CardComponent } from './components/card/card.component';
 import { ImageConcatPipe } from './pipes/image-concat.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// Skeleton
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+
 // Modulo de peticiones http
 import { HttpClientModule } from '@angular/common/http';
 // Modulo de Angular Material
@@ -32,6 +35,7 @@ import { AngularMaterialModule } from './modules/angular-material/angular-materi
     BrowserAnimationsModule,
     AngularMaterialModule,
     HttpClientModule,
+    NgxSkeletonLoaderModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

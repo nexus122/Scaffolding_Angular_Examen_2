@@ -1,6 +1,28 @@
-<div class="section">
-  <app-card
-    *ngFor="let character of characters"
-    [character]="character"
-  ></app-card>
+<div class="section-container">
+  <!-- Futuro Buscador -->
+
+  <div class="section">
+    <!-- Cards -->
+    <app-card
+      *ngFor="let character of actualCharacters"
+      [character]="character"
+    ></app-card>
+
+    <ngx-skeleton-loader
+      *ngIf="actualCharacters.length ? false : true"
+      class="loader"
+      [count]="limit"
+      [theme]="{
+        height: '240px',
+        width: '200px',
+        'background-color': '#992929'
+      }"
+    ></ngx-skeleton-loader>
+  </div>
+  <!-- Paginación -->
+  <mat-paginator
+    [length]="total"
+    [pageSize]="limit"
+    (page)="obtainNewPage($event)"
+  ></mat-paginator>
 </div>

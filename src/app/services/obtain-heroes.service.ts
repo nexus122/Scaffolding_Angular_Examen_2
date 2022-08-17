@@ -7,41 +7,45 @@ import { environment } from 'src/environments/environment';
 import CharacterDataWrapper from '../models/CharacterDataWrapper';
 import CharacterDataContainer from '../models/CharacterDataContainer ';
 import Character from '../models/Character';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 environment;
 @Injectable({
   providedIn: 'root',
 })
 export class ObtainHeroesService extends GenericCallsService<CharacterDataWrapper> {
-  characters: EventEmitter<Character[]> = new EventEmitter();
   constructor(protected override http: HttpClient) {
     super(http);
   }
 
-  getResourceUrl(): string {
-    return 'characters?';
+  // Pipe para devolver array de Heroes
+  obtainCharacters(param: string): Observable<CharacterDataContainer> {
+    return this.get('characters?', param).pipe(
+      map((res: CharacterDataWrapper) => {
+        const dataContainer: CharacterDataContainer = res.data || {};
+        dataContainer.results = dataContainer.results?.map(
+          (character: any) => ({
+            id: character.id,
+            name: character.name,
+            thumbnail: character.thumbnail,
+          })
+        );
+        return dataContainer;
+      })
+    );
   }
 
-  // Pipe para devolver array de Heroes
-  obtainCharacters(param: string) {
-    this.get(param)
-      .pipe(
-        map((res: CharacterDataWrapper) => {
-          const dataContainer: CharacterDataContainer = res.data || {};
-          dataContainer.results = dataContainer.results?.map(
-            (character: Character) => ({
-              id: character.id,
-              name: character.name,
-              thumbnail: character.thumbnail,
-            })
-          );
-          return dataContainer;
-        })
-      )
-      .subscribe((hero) => {
-        console.log(hero);
-        this.characters.emit(hero.results);
-      });
+  obtainCreators(param: string): Observable<CharacterDataContainer> {
+    return this.get('creators?', param).pipe(
+      map((res: any) => {
+        const dataContainer: CharacterDataContainer = res.data || {};
+        dataContainer.results = dataContainer.results?.map((creator: any) => ({
+          id: creator.id,
+          name: creator.fullName,
+          thumbnail: creator.thumbnail,
+        }));
+        return dataContainer;
+      })
+    );
   }
 }

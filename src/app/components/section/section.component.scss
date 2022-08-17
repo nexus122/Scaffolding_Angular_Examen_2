@@ -1,7 +1,17 @@
 @import '../../styles/global.scss';
 
-.section {
-  @include flex (flex, wrap, row, center, center, center);
-  gap: 1em;
-  padding: 1em;
+.section-container {
+  @include flex (flex, wrap, column, center, center, center);
+
+  .section {
+    @include flex (flex, wrap, row, center, center, center);
+    gap: 1em;
+    padding: 1em;
+  }
+
+  .loader {
+    @include flex (flex, wrap, row, center, center, center);
+    gap: 1em;
+    padding: 1em;
+  }
 }

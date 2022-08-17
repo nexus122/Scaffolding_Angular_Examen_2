@@ -9,6 +9,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 // Cargamos las cards
 import { MatCardModule } from '@angular/material/card';
+// Paginación
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [],
@@ -19,6 +21,7 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    MatPaginatorModule,
   ],
 })
 export class AngularMaterialModule {}

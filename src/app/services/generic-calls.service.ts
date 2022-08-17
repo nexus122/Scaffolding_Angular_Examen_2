@@ -7,10 +7,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export abstract class GenericCallsService<T> {
-  private readonly APiURL = environment.marvelURL + this.getResourceUrl();
+  private readonly APiURL = environment.marvelURL;
   constructor(protected http: HttpClient) {}
-  abstract getResourceUrl(): string;
-  get(param: string): Observable<T> {
-    return this.http.get<T>(`${this.APiURL}${param}`);
+
+  get(route: string, param: string): Observable<T> {
+    return this.http.get<T>(`${this.APiURL}${route}${param}`);
   }
 }

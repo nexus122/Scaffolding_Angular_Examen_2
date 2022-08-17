@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import Character from 'src/app/models/Character';
+import CharacterDataContainer from 'src/app/models/CharacterDataContainer ';
 import { ObtainHeroesService } from 'src/app/services/obtain-heroes.service';
 import { environment } from 'src/environments/environment';
 
@@ -10,20 +10,28 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./container.component.scss'],
 })
 export class ContainerComponent implements OnInit {
-  constructor(private _obtainHero: ObtainHeroesService) {}
   /* Elementos esenciales para la paginación */
-  limit = 100;
-  offset = 0;
+  characters!: Observable<CharacterDataContainer>;
+  creators!: Observable<CharacterDataContainer>;
 
-  characters?: Observable<Character[]>;
+  constructor(private _obtainHero: ObtainHeroesService) {}
 
   ngOnInit(): void {
-    this.characters = this._obtainHero.characters;
-    this.obtainCharacters();
+    this.apiCharacterCall(0, 10);
+    this.apiCreatorCall(0, 10);
   }
 
-  obtainCharacters() {
-    const param = `ts=${environment.ts}&apikey=${environment.publicKey}&hash=${environment.Hash}&limit=${this.limit}&offset=${this.offset}`;
-    this._obtainHero.obtainCharacters(param);
+  obtainPagination(params: any) {
+    if (params.type == 1) this.apiCharacterCall(params.offset, params.limit);
+    if (params.type == 2) this.apiCreatorCall(params.offset, params.limit);
+  }
+
+  apiCharacterCall(offset: number, limit: number) {
+    const param = `ts=${environment.ts}&apikey=${environment.publicKey}&hash=${environment.Hash}&limit=${limit}&offset=${offset}`;
+    this.characters = this._obtainHero.obtainCharacters(param);
+  }
+  apiCreatorCall(offset: number, limit: number) {
+    const param = `ts=${environment.ts}&apikey=${environment.publicKey}&hash=${environment.Hash}&limit=${limit}&offset=${offset}`;
+    this.creators = this._obtainHero.obtainCreators(param);
   }
 }

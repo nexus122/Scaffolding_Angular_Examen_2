@@ -1,1 +1,15 @@
-<app-section [characters]="characters | async"></app-section>
+<!-- Characters -->
+<h1>Marvel Personajes</h1>
+<app-section
+  (pagination)="obtainPagination($event)"
+  [characters]="characters | async"
+  [type]="1"
+></app-section>
+
+<!-- creators -->
+<h1>Marvel Creadores</h1>
+<app-section
+  (pagination)="obtainPagination($event)"
+  [characters]="creators | async"
+  [type]="2"
+></app-section>
