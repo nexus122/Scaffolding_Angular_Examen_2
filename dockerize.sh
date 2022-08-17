@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ## Configuración
-image="marvel-web"          ## 👈 Escribe el nombre de tu imagen de docker
-server="app-web-marvel"     ## 👈 Escribe el nombre del servidor heroku
+image="scaffolding-angular-examen-2"          ## 👈 Escribe el nombre de tu imagen de docker
+server="scaffolding-angular-examen-2"     ## 👈 Escribe el nombre del servidor heroku
 
 ## Descargamos la configuración de nginx para Angular.
 echo "Creamos la carpega nginx y nos descargamos la configuración."
