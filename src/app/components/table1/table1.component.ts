@@ -20,7 +20,7 @@ export class Table1Component implements OnInit {
     this.charactersList = this.getCharacters() || [];
   }
 
-  getCharacters(): Observable<CharacterDataWrapper> {
+  getCharacters(): Observable<Array<Partial<Character>>> {
     this.status = 'characters';
     return this.http
       .get<CharacterDataWrapper>(
@@ -40,7 +40,7 @@ export class Table1Component implements OnInit {
             })
           );
 
-          return todoslosdatos || {};
+          return dataContainer.results || {};
         })
       );
   }

@@ -1,4 +1,4 @@
-<tr *ngFor="let character of (charactersList | async).data.results">
+<tr *ngFor="let character of charactersList | async">
   <td (click)="obtainClick(character.id)">{{ character.id }}</td>
   <td>{{ character.name || character.title }}</td>
   <td>

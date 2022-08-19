@@ -1,41 +1,43 @@
 export interface CharacterDataWrapper {
-  code?: number;
-  status?: string;
-  copyright?: string;
-  attributionText?: string;
-  attributionHTML?: string;
-  data?: CharacterDataContainer;
-  etag?: string;
+  code: number;
+  status: string;
+  copyright: string;
+  attributionText: string;
+  attributionHTML: string;
+  data: CharacterDataContainer;
+  etag: string;
 }
 
 export interface CharacterDataContainer {
-  offset?: number;
-  limit?: number;
-  total?: number;
-  count?: number;
-  results?: Array<Character>;
+  offset: number;
+  limit: number;
+  total: number;
+  count: number;
+  results: Array<Partial<Character>>;
 }
 
 export interface Character {
-  id?: number;
-  name?: string;
-  description?: string;
-  modified?: Date;
-  resourceURI?: string;
-  urls?: number;
-  thumbnail?: {
+  id: number;
+  name: string;
+  description: string;
+  modified: Date;
+  resourceURI: string;
+  urls: number;
+  thumbnail: {
     path: string;
     extension: string;
   };
-  comics?: number;
-  stories?: number;
-  events?: number;
-  series?: number;
+  comics: number;
+  stories: number;
+  events: number;
+  series: number;
 }
+
 export interface Url {
   type: string;
   url: string;
 }
+
 export interface Image {
   path: string;
   extension: string;
