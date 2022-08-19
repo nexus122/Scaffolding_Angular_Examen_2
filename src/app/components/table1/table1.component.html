@@ -5,18 +5,8 @@
     <th>imagen</th>
     <th>descripcion</th>
   </tr>
-  <tr *ngFor="let character of charactersList | async">
-    <td (click)="obtainClick(character.id)">{{ character.id }}</td>
-    <td>{{ character.name || character.title }}</td>
-    <td>
-      <img
-        class="img"
-        [src]="character.thumbnail.path + '.' + character.thumbnail.extension"
-        [alt]="character.name"
-      />
-    </td>
-    <td>
-      {{ character.description || "No hay descripción" }}
-    </td>
-  </tr>
+  <app-row
+    [charactersList]="charactersList"
+    (idSearch)="obtainClick($event)"
+  ></app-row>
 </table>

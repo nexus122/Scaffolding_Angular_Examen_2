@@ -20,7 +20,7 @@ export class Table1Component implements OnInit {
     this.charactersList = this.getCharacters() || [];
   }
 
-  getCharacters(): Observable<Array<Character>> {
+  getCharacters(): Observable<CharacterDataWrapper> {
     this.status = 'characters';
     return this.http
       .get<CharacterDataWrapper>(
@@ -40,7 +40,7 @@ export class Table1Component implements OnInit {
             })
           );
 
-          return todoslosdatos.data?.results || [];
+          return todoslosdatos || {};
         })
       );
   }
@@ -55,6 +55,7 @@ export class Table1Component implements OnInit {
 
   getCharactersForComic(id: number) {
     // Nos devuelve los comics donde aparece el personaje
+    this.status = 'characters';
     return this.http.get<any>(
       `https://gateway.marvel.com/v1/public/comics/${id}/characters?ts=1&apikey=398d788634e8cc2decdabcfe848b82ad&hash=dbdf7c33f6f3294b0ac8da95c58278b2&limit=10&offset=0`
     );

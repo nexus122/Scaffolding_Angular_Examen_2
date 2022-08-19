@@ -1,0 +1,14 @@
+<tr *ngFor="let character of (charactersList | async).data.results">
+  <td (click)="obtainClick(character.id)">{{ character.id }}</td>
+  <td>{{ character.name || character.title }}</td>
+  <td>
+    <img
+      class="img"
+      [src]="character.thumbnail.path + '.' + character.thumbnail.extension"
+      [alt]="character.name"
+    />
+  </td>
+  <td>
+    {{ character.description || "No hay descripción" }}
+  </td>
+</tr>

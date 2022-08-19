@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularMaterialModule } from './modules/angular-material/angular-material.module';
 import { LoginComponent } from './components/login/login.component';
 import { Table1Component } from './components/table1/table1.component';
+import { RowComponent } from './components/row/row.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { Table1Component } from './components/table1/table1.component';
     ImageConcatPipe,
     LoginComponent,
     Table1Component,
+    RowComponent,
   ],
   imports: [
     BrowserModule,
