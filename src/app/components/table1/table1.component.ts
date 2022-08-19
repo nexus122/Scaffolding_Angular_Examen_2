@@ -111,21 +111,3 @@ export class Table1Component implements OnInit {
     }
   }
 }
-
-/*
-.pipe(
-        map((res: characterDataWrapped) => {
-          const dataContainer: CharacterDataContainer = res.data || {};
-          dataContainer.results = dataContainer.results?.map(
-            (character: heroModel) => ({
-              id: character.id,
-              name: character.name,
-              thumbnail: character.thumbnail
-            })
-          );
-          return dataContainer;
-        }),
-        catchError((err) => {
-          throw 'error in source. Details: ' + err;
-        })
-      );*/
