@@ -12,7 +12,7 @@ export interface ComicDataContainer {
   limit: number;
   total: number;
   count: number;
-  results: Array<Comic>;
+  results: Array<Partial<Comic>>;
 }
 export interface Comic {
   id: number;
