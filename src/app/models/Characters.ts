@@ -27,10 +27,10 @@ export interface Character {
     path: string;
     extension: string;
   };
-  comics: number;
-  stories: number;
-  events: number;
-  series: number;
+  comics: ComicList;
+  stories: StoryList;
+  events: EventList;
+  series: SeriesList;
 }
 
 export interface Url {
