@@ -4,7 +4,7 @@ export interface SeriesDataWrapper {
   copyright: string;
   attributionText: string;
   attributionHTML: string;
-  data: string;
+  data: SeriesDataContainer;
   etag: string;
 }
 export interface SeriesDataContainer {
